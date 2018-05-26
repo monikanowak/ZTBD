@@ -2,8 +2,13 @@ extends layout
 
 block content
 	h1 Users
-	a(href="/adduser") Add User
-	ul
+	
+	ul#usersList
 		each user, i in users
 			li 
-				a(href="/user/#{user.username}") #{user.username}
+				p #{user.username}
+					a(href="/user/#{user.username}")
+						button#seeUser.mybut(type="submit") See User
+				//- a(href="/user/#{user.username}") #{user.username}
+	a(href="/adduser") 
+		button#addNew.mybut(type="button") Add User

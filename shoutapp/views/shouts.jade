@@ -4,19 +4,19 @@ block content
 	form#formAddShout(name="addshout", method="post", action="/addshout")
 		div
 			select(name="username")
-				option(value="devuser1") devuser1
-				option(value="devuser2") devuser2
-				option(value="devuser3") devuser3
-				option(value="devuser4") devuser4
+				option(value="devuser1") User1
+				option(value="devuser2") User2
+				option(value="devuser3") User3
+				option(value="devuser4") User4
 		br
 		div
 			textarea(name="body", placeholder="Shout Something!", cols="50", rows="5")
 		br
 		div
-			button#btnSubmit(type="submit") Submit
+			button#btnSubmit.mybut(type="submit") Send
 	h1 Shouts
 	ul
 		each shout, i in shouts
 			li <strong> 
-				a(href="/shouts/#{shout.username}") #{shout.username}: </strong>
-				| #{shout.body}
+				a(href="/shouts/#{shout.username}") #{shout.username}:  </strong>
+				|  #{shout.body}

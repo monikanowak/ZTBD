@@ -1,5 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to HALo#{title}
+  h1=title
+  p Welcome to SuperApp!
+  ul#actions
+    li: a(href="/adduser") 
+          button.mybut(type="button") Add User
+    li: a(href="/users") 
+          button.mybut(type="button") See Users
+    li: a(href="/shouts") 
+          button.mybut(type="button") See Shouts
+    

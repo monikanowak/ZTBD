@@ -4,13 +4,14 @@ block content
 	a(href="/users") Back To Users
 	h1 User Info
 	ul
-		li Name:
+		li Name: 
 			strong #{full_name}
-		li Username:
+		li Username: 
 			strong #{username}
-		li Email Address
+		li Email Address: 
 			strong #{email}
-	div
-		a(class="edituser" href="/edituser/#{username}") Edit User 
-		| | 
-		a(class="deleteuser" href="#" data-user="#{username}") Delete User
+	div#actions
+		a(href="/edituser/#{username}") 
+			button.mybut(type="button") Edit User
+		a(data-user="#{username}") 
+			button.mybut(type="button") Delete 
