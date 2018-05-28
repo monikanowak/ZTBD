@@ -11,7 +11,7 @@ router.get('/', function(req, res){
 	res.render('adduser');
 });
 
-var upsertUser  = 'INSERT INTO shoutkeyspace.users(username, password, email, full_name) VALUES(?,?,?,?)';
+var upsertUser  = 'INSERT INTO shoutkeyspace.users(username, password, email, full_name) VALUES(?,?,?,?) IF NOT EXISTS';
 
 router.post('/', function(req, res){
 	client.execute(upsertUser, [req.body.username, req.body.password, req.body.email, req.body.full_name],

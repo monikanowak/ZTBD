@@ -2,7 +2,7 @@ extends layout
 
 block content
 	h1 Edit User
-	form#formEditUser(name="edituser", method="post", action="/edituser")
+	form#formEditUser(name="edituser", method="put", action="/edituser")
 		div
 			input#inputUserName(type="text", placeholder="Enter Username" name="username" value="#{username}")
 		div

@@ -24,9 +24,9 @@ router.get('/:username', function(req, res){
 	});
 });
 
-var upsertUser  = 'INSERT INTO shoutkeyspace.users(username, password, email, full_name) VALUES(?,?,?,?)';
+var upsertUser  = 'UPDATE INTO shoutkeyspace.users(username, password, email, full_name) VALUES(?,?,?,?) IF EXISTS';
 
-router.post('/', function(req, res){
+router.put('/', function(req, res){
 	client.execute(upsertUser, [req.body.username, req.body.password, req.body.email, req.body.full_name],
 		function(err, result){
 			if(err){

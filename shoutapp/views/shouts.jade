@@ -2,18 +2,15 @@ extends layout
 
 block content
 	form#formAddShout(name="addshout", method="post", action="/addshout")
-		div
-			select(name="username")
-				option(value="devuser1") User1
-				option(value="devuser2") User2
-				option(value="devuser3") User3
-				option(value="devuser4") User4
+		select(name="username" disabled=users.length===0)
+			each user, i in users
+				option(value="#{user.username}") #{user.username}
 		br
 		div
-			textarea(name="body", placeholder="Shout Something!", cols="50", rows="5")
+			textarea(name="body", placeholder="Shout Something!", cols="50", rows="5" disabled=users.length===0)
 		br
 		div
-			button#btnSubmit.mybut(type="submit") Send
+			button#btnSubmit.mybut(type="submit" disabled=users.length===0) Send
 	h1 Shouts
 	ul
 		each shout, i in shouts
