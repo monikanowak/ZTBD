@@ -2,17 +2,21 @@ var express = require('express');
 var router = express.Router();
 var cassandra = require('cassandra-driver');
 
-var client = new cassandra.Client({contactPoints : ['127.0.0.1']});
-client.connect(function(err, result){
-    console.log('cassandra connected: adduser');
+var client = new cassandra.Client({
+	contactPoints: ['127.0.0.1']
+});
+client.connect(function (err, result) {
+	console.log('cassandra connected: adduser');
 });
 
 var getByUsername = 'SELECT * FROM shoutkeyspace.users WHERE username = ?';
 
-router.get('/:username', function(req, res){
-	client.execute(getByUsername,[req.params.username], function(err,result){
-		if(err){
-			res.status(404).send({msg: err});
+router.get('/:username', function (req, res) {
+	client.execute(getByUsername, [req.params.username], function (err, result) {
+		if (err) {
+			res.status(404).send({
+				msg: err
+			});
 		} else {
 			res.render('edituser', {
 				username: result.rows[0].username,
@@ -24,16 +28,18 @@ router.get('/:username', function(req, res){
 	});
 });
 
-var upsertUser  = 'UPDATE INTO shoutkeyspace.users(username, password, email, full_name) VALUES(?,?,?,?) IF EXISTS';
+var upsertUser = 'UPDATE shoutkeyspace.users SET password=?, email=?, full_name=? WHERE username=? IF EXISTS';
 
-router.put('/', function(req, res){
-	client.execute(upsertUser, [req.body.username, req.body.password, req.body.email, req.body.full_name],
-		function(err, result){
-			if(err){
-				res.status(404).send({msg: err});
-			} else{
+router.post('/', function (req, res) {
+	client.execute(upsertUser, [req.body.password, req.body.email, req.body.full_name, req.body.username],
+		function (err, result) {
+			if (err) {
+				res.status(404).send({
+					msg: err
+				});
+			} else {
 				console.log('User Updated');
-				res.redirect('/user/'+ req.body.username);
+				res.redirect('/user/' + req.body.username);
 			}
 		});
 });
