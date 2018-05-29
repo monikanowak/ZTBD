@@ -1,16 +1,18 @@
 extends layout
 
 block content
-	form#formAddShout(name="addshout", method="post", action="/addshout")
-		select(name="username" disabled=users.length===0)
+	a(href="/") Back To Menu
+	h1 Add your shout
+	form#formAddShout.form-group(name="addshout", method="post", action="/addshout")
+		select.form-control(name="username" disabled=users.length===0)
 			each user, i in users
 				option(value="#{user.username}") #{user.username}
 		br
 		div
-			textarea(name="body", placeholder="Shout Something!", cols="50", rows="5" disabled=users.length===0)
+			textarea.form-control(name="body", placeholder="Shout Something!", cols="50", rows="5" disabled=users.length===0)
 		br
 		div
-			button#btnSubmit.mybut(type="submit" disabled=users.length===0) Send
+			button.btn.btn-success(type="submit" disabled=users.length===0) Send
 	h1 Shouts
 	ul
 		each shout, i in shouts

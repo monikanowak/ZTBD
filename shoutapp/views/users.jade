@@ -1,14 +1,13 @@
 extends layout
 
 block content
+	a(href="/") Back To Menu
 	h1 Users
 	
-	ul#usersList
+	ul.list-group#usersList
 		each user, i in users
-			li 
-				p #{user.username}
-					a(href="/user/#{user.username}")
-						button#seeUser.mybut(type="submit") See User
+			li.list-group-item
+				p.list-group-item #{user.username}
+				a.btn-sm.btn-info(href="/user/#{user.username}") See Details
 				//- a(href="/user/#{user.username}") #{user.username}
-	a(href="/adduser") 
-		button#addNew.mybut(type="button") Add User
+	a.btn.btn-success(href="/adduser") Add User

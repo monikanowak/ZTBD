@@ -1,15 +1,17 @@
 extends layout
 
 block content
+	a(href="/users") Back To Users
 	h1 Edit User
-	form#formEditUser(name="edituser", method="post", action="/edituser")
+	form#formEditUser(name="edituser", method="put", action="/edituser")
 		div
-			input#inputUserName(type="text", placeholder="Enter Username" name="username" value="#{username}")
+			input#inputUserName.form-control(type="text", placeholder="Enter Username" name="username" value="#{username}")
 		div
-			input#inputPassword(type="password", placeholder="Enter Password" name="password" value="#{password}")
+			input#inputPassword.form-control(type="password", placeholder="Enter Password" name="password" value="#{password}")
 		div
-			input#inputEmail(type="text", placeholder="Enter Email" name="email" value="#{email}")
+			input#inputEmail.form-control(type="text", placeholder="Enter Email" name="email" value="#{email}")
 		div
-			input#inputFullName(type="text", placeholder="Enter Full Name" name="full_name" value="#{full_name}")
+			input#inputFullName.form-control(type="text", placeholder="Enter Full Name" name="full_name" value="#{full_name}")
+		br
 		div
-			button#btnSubmit.mybut(type="submit") Submit
+			button#btnSubmit.btn.btn-success(type="submit") Submit
