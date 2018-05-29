@@ -1,13 +1,16 @@
 extends layout
 
 block content
-	a(href="/") Back To Menu
-	h1 Users
-	
-	ul.list-group#usersList
-		each user, i in users
-			li.list-group-item
-				p.list-group-item #{user.username}
-				a.btn-sm.btn-info(href="/user/#{user.username}") See Details
-				//- a(href="/user/#{user.username}") #{user.username}
-	a.btn.btn-success(href="/adduser") Add User
+	div.container(style="width: 50%;")
+		a(href="/") Back To Menu
+		h1 Users
+		
+		ul.list-group#usersList
+			each user, i in users
+				li.list-group-item
+					p.list-group-item 
+						span.glyphicon.glyphicon-user  
+						span   #{user.username}
+					a.btn-sm.btn-info(href="/user/#{user.username}") See Details
+					//- a(href="/user/#{user.username}") #{user.username}
+		a.btn.btn-success.pull-right(href="/adduser") Add User

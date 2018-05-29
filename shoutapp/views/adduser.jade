@@ -1,19 +1,20 @@
 extends layout
 
 block content
-	a(href="/") Back To Menu
-	h1 Add User
-	form#formAddUser(name="adduser", method="post", action="/adduser")
-		div
-			input#inputUserName.form-control(type="text", placeholder="Enter Username" name="username")
-		div
-			input#inputPassword.form-control(type="password", placeholder="Enter Password" name="password")
-		div
-			input#inputEmail.form-control(type="text", placeholder="Enter Email" name="email")
-		div
-			input#inputFullName.form-control(type="text", placeholder="Enter Full Name" name="full_name")
-		br
-		div
-			button#btnSubmit.btn.btn-success(type="submit") Submit
+	div.container(style="width: 40%;")
+		a(href="/") Back To Menu
+		h1 Add User
+		form#formAddUser(name="adduser", method="post", action="/adduser")
+			div
+				input#inputUserName.form-control(type="text", placeholder="Enter Username" name="username")
+			div
+				input#inputPassword.form-control(type="password", placeholder="Enter Password" name="password")
+			div
+				input#inputEmail.form-control(type="text", placeholder="Enter Email" name="email")
+			div
+				input#inputFullName.form-control(type="text", placeholder="Enter Full Name" name="full_name")
+			br
+			div
+				button#btnSubmit.btn.btn-success.pull-right(type="submit") Submit
 
 	
