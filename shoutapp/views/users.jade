@@ -7,10 +7,11 @@ block content
 		
 		ul.list-group#usersList
 			each user, i in users
-				li.list-group-item
+				li.list-group-item.clearfix
 					p.list-group-item 
 						span.glyphicon.glyphicon-user  
 						span   #{user.username}
-					a.btn-sm.btn-info(href="/user/#{user.username}") See Details
+					span.pull-right
+						a.btn-sm.btn-info(href="/user/#{user.username}") See Details
 					//- a(href="/user/#{user.username}") #{user.username}
 		a.btn.btn-success.pull-right(href="/adduser") Add User
