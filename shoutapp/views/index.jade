@@ -1,10 +1,11 @@
 extends layout
 
 block content
-  h1=title
-  p Welcome to ShoutsApp!
-  ul#actions
-    li.list-group: a.btn.btn-info(href="/adduser") Add User
-    li.list-group: a.btn.btn-info(href="/users") See Users
-    li.list-group: a.btn.btn-info(href="/shouts") See Shouts
+  div.container
+    h1=title
+    p Welcome to ShoutsApp!
+    ul#actions
+      li.list-group: a.btn.btn-info(style="width: 100px; margin-top: 10px;" href="/adduser") Add User
+      li.list-group: a.btn.btn-info(style="width: 100px;" href="/users") See Users
+      li.list-group: a.btn.btn-info(style="width: 100px;" href="/shouts") See Shouts
     
